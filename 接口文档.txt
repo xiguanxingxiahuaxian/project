@@ -1,0 +1,157 @@
+
+BASE_URL:http://119.3.218.199:1234/
+*********************************用户模块************************************
+获取用户列表:getUserList
+入参方式:get
+
+
+用户注册:AddUser
+入参方式:post
+@RequestParam("userName") String userName,
+@RequestParam("realName") String realName,
+@RequestParam("password") String password,
+@RequestParam("eMail") String eMail,
+@RequestParam("tel") String tel
+
+用户登录:
+入参方式:post
+@RequestParam("userName") String userName,
+@RequestParam("password") String password
+
+
+用户修改:setUserInfo
+入参方式:post
+@RequestParam("id") Integer id,
+@RequestParam("userName") String userName,
+@RequestParam("realName") String realName,
+@RequestParam("eMail") String eMail,
+@RequestParam("tel") String tel
+
+
+获取用户信息:getUserInfo
+入参方式:get
+@RequestParam("id") Integer id
+
+普通用户升级会员:setVip
+入参方式:get
+@RequestParam("userId") Integer userId
+
+
+*********************************商品模块************************************
+
+所有商品列表:getGoodsList
+入参方式:get
+
+
+自己发布商品列表:getMySelfGoodsList
+入参方式:get
+@RequestParam("createUserId") String createUserId
+
+
+添加商品:AddGoods
+入参方式:post
+@RequestParam("createUserId") String createUserId,
+@RequestParam("createUserName") String createUserName,
+@RequestParam("goodsName") String goodsName,
+@RequestParam("goodsDesc") String goodsDesc,
+@RequestParam("goodsPrice") String goodsPrice,
+@RequestParam("vipPrice") String vipPrice,
+@RequestParam("goodsImage") String goodsImage
+
+
+修改商品:setGoodsInfo
+入参方式:post
+@RequestParam("id") Integer id,
+@RequestParam("goodsName") String goodsName,
+@RequestParam("goodsDesc") String goodsDesc,
+@RequestParam("goodsPrice") String goodsPrice,
+@RequestParam("vipPrice") String vipPrice,
+@RequestParam("goodsImage") String goodsImage
+
+删除商品:DelGoods
+入参方式:get
+@RequestParam("id") Integer id,
+@RequestParam("createUserId") String createUserId
+
+*********************************购物车模块************************************
+
+获取购物车:getCar
+入参方式:get
+@RequestParam("userId") String userId
+
+
+添加购物车:AddCar
+入参方式:get
+@RequestParam("userId") String userId,
+@RequestParam("goodsId") String goodsId
+
+
+删除购物车:DelCar
+入参方式:get
+@RequestParam("userId") String userId,
+@RequestParam("goodsId") String goodsId
+
+*********************************课程模块************************************
+
+获取所有课程:getSubjectList
+入参方式:get
+
+
+根据类型查询:getTypeSubject
+入参方式:get
+@RequestParam("subjectType") String subjectType
+
+
+获取自己发布的课程:getUserSubject
+入参方式:get
+@RequestParam("createUserId") String createUserId
+
+
+添加课程:AddSubject
+入参方式:post
+@RequestParam("subjectName") String subjectName,
+@RequestParam("subjectType") String subjectType,
+@RequestParam("lecturer") String lecturer,
+@RequestParam("author") String author,
+@RequestParam("subjectContent") String subjectContent,
+@RequestParam("createUserId") String createUserId,
+@RequestParam("createUserName") String createUserName
+
+
+删除课程:DelSubject
+入参方式:get
+@RequestParam("id") Integer id
+
+
+
+*********************************订单模块************************************
+
+查询自己的订单：getMySelfOrderList
+入参方式：get
+@RequestParam("createUserId") String createUserId
+
+
+添加订单：AddOrder
+入参方式：post
+@RequestParam("createUserId") String createUserId,
+@RequestParam("createUserName") String createUserName,
+@RequestParam("goodsName") String goodsName,
+@RequestParam("goodsDesc") String goodsDesc,
+@RequestParam("goodsPrice") String goodsPrice,
+@RequestParam("vipPrice") String vipPrice,
+@RequestParam("goodsImage") String goodsImage,
+@RequestParam("number") String number
+
+
+删除订单：DelOrder
+入参方式：get
+@RequestParam("id") Integer id,
+@RequestParam("createUserId") String createUserId
+
+
+下单接口：BuyOrder
+入参方式：get
+@RequestParam("id") Integer id,
+@RequestParam("createUserId") String createUserId
+
+
