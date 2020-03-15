@@ -23,6 +23,16 @@ public class InfoController {
         return Global.getMap(infoRepository.findAll());
     }
 
+    /**
+     *
+     * 当前用户获取评论的回复
+     * @param username
+     * @return
+     */
+    @GetMapping(value = "/getInfoByCreateuser")
+    public Map<String, Object> getInfo(String username){
+        return Global.getMap(infoRepository.findByAssessByName(username));
+    }
     @PostMapping(value = "/AddInfo")
     public Map<String, Object> AddInfo(@RequestBody Info info) {
         Date day = new Date();

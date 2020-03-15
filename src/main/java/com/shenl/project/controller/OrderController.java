@@ -22,6 +22,18 @@ public class OrderController {
         return Global.getMap(orderRepository.findByCreateUserId(createUserId));
     }
 
+    /**
+     * 根据isplay的状态完成查询
+     * 该功能室用户收藏，下单 下单未收获，服务端发货等
+     * 信息
+     * @param createUserId
+     * @param ispay
+     * @return
+     */
+    @GetMapping(value = "/getMySelfOrderListByIspay")
+    public Map<String, Object> getMySelfOrderList(@RequestParam("createUserId") String createUserId,@RequestParam("ispay") String ispay) {
+        return Global.getMap(orderRepository.findByWithIsplay(createUserId,ispay));
+    }
     @PostMapping(value = "/AddOrder")
     public Map<String, Object> AddOrder(@RequestParam("createUserId") String createUserId,
                                         @RequestParam("createUserName") String createUserName,
@@ -55,7 +67,23 @@ public class OrderController {
     public Map<String, Object> BuyOrder(@RequestParam("id") Integer id,
                                         @RequestParam("createUserId") String createUserId) {
         Orders order = orderRepository.findByIdAndCreateUserId(id, createUserId);
-        order.setIsPay("1");
+        order.setGoodspay("1");
+        orderRepository.save(order);
+        return Global.getMap(order);
+    }
+
+    /**
+     * 是否付款0为付款1已经付款2未发货3已经发货4未确认收获5已经确认收获6完成11为收藏
+     * @param id
+     * @param createUserId
+     * @return
+     */
+    @GetMapping(value = "/BuyOrderWithIsPlayState")
+    public Map<String, Object> BuyOrderWithIsPlayState(@RequestParam("id") Integer id,
+                                        @RequestParam("createUserId") String createUserId,
+                                                       @RequestParam("isPlay") String isPlay) {
+        Orders order = orderRepository.findByIdAndCreateUserId(id, createUserId);
+        order.setGoodspay(isPlay);
         orderRepository.save(order);
         return Global.getMap(order);
     }

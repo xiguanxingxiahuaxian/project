@@ -2,7 +2,7 @@ package com.shenl.project.bean;
 
 import javax.persistence.*;
 
-@Table
+@Table(name = "orders")
 @Entity
 public class Orders {
     @Id
@@ -16,7 +16,7 @@ public class Orders {
     private String createUserName;
     private String goodsImage;
     private String number;
-    private String isPay = "0";
+    private String goodspay = "0";
 
     public String getCreateUserName() {
         return createUserName;
@@ -90,11 +90,11 @@ public class Orders {
         this.number = number;
     }
 
-    public String getIsPay() {
-        return isPay;
+    public String getGoodspay() {
+        return goodspay;
     }
 
-    public void setIsPay(String isPay) {
-        this.isPay = isPay;
+    public void setGoodspay(String goodspay) {
+        this.goodspay = goodspay;
     }
 }

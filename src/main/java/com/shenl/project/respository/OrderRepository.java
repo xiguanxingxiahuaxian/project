@@ -12,8 +12,13 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Orders,Integer> {
     List<Orders> findByCreateUserId(String CreateUserId);
 
+    @Query(value = "select * from orders where  create_user_id=?1 and goodspay =?2",nativeQuery = true)
+    List<Orders> findByWithIsplay(String CreateUserId,String isPay);
+
     @Modifying
     @Query(value = "delete from orders where id=?1 and create_user_id=?2",nativeQuery = true)
     void delete(Integer id, String CreateUserId);
     Orders findByIdAndCreateUserId(Integer id, String CreateUserId);
+
+
 }

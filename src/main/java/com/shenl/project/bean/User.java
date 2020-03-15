@@ -14,11 +14,12 @@ public class User {
     private String eMail;
     private String tel;
     private String isVip;
-
+    private String  coupon ;//优惠卷
+    private int  role ;//角色
+    private String  address;//地址
     public String getIsVip() {
         return isVip;
     }
-
     public void setIsVip(String isVip) {
         this.isVip = isVip;
     }
@@ -69,5 +70,30 @@ public class User {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getCoupon() {
+        return coupon;
+    }
+
+    public void setCoupon(String coupon) {
+        this.coupon = coupon;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 }

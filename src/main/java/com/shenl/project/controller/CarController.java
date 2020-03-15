@@ -25,6 +25,7 @@ public class CarController {
         return Global.getMap(goodsRepository.getCar(userId));
     }
 
+
     @GetMapping(value = "/AddCar")
     public Map<String, Object> AddCar(@RequestParam("userId") String userId,
                                       @RequestParam("goodsId") Integer goodsId) {

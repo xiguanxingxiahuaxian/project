@@ -12,6 +12,15 @@ public class Assess {
     private String content;
     private String createUserName;
     private String time;
+    private String create_user_id;
+
+    public String getCreate_user_id() {
+        return create_user_id;
+    }
+
+    public void setCreate_user_id(String create_user_id) {
+        this.create_user_id = create_user_id;
+    }
 
     public int getId() {
         return id;

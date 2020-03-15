@@ -28,7 +28,12 @@ public class UserController {
                                        @RequestParam("realName") String realName,
                                        @RequestParam("password") String password,
                                        @RequestParam("eMail") String eMail,
-                                       @RequestParam("tel") String tel) {
+                                       @RequestParam("tel") String tel,
+                                       @RequestParam("compose") String compose,
+                                       @RequestParam("role") int role,
+                                       @RequestParam("address") String address
+
+    ) {
         User UserName = userRepository.findByUserName(userName);
         if (UserName != null) {
             return Global.getMap(null, "用户名不能重复");
@@ -40,6 +45,9 @@ public class UserController {
         user.seteMail(eMail);
         user.setTel(tel);
         user.setIsVip("0");
+        user.setAddress(address);
+        user.setCoupon(compose);
+        user.setRole(role);
         return Global.getMap(userRepository.save(user));
     }
 

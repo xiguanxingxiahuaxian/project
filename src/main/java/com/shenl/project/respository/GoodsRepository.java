@@ -1,5 +1,6 @@
 package com.shenl.project.respository;
 
+import com.shenl.project.bean.Assess;
 import com.shenl.project.bean.Goods;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -19,4 +20,7 @@ public interface GoodsRepository extends JpaRepository<Goods,Integer> {
 
     @Query(value = "select * from goods where id in (select goods_id from car where user_id=?1)",nativeQuery = true)
     List<Goods> getCar(Integer userId);
+
+    @Query(value = "select * from goods where goods_classify=?1",nativeQuery = true)
+    List<Goods> findByGoodsId(Integer goodsId);
 }

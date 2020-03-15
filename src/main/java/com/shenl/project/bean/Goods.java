@@ -16,6 +16,11 @@ public class Goods {
     private String createUserId;
     private String createUserName;
     private String goodsImage;
+    private String goods_url;
+    private int goods_num;
+    private String create_time;
+    private int goods_classify;
+
 
     public String getCreateUserName() {
         return createUserName;
@@ -79,5 +84,39 @@ public class Goods {
 
     public void setGoodsImage(String goodsImage) {
         this.goodsImage = goodsImage;
+    }
+
+    public String getGoods_url() {
+        return goods_url;
+    }
+
+    public void setGoods_url(String goods_url) {
+        this.goods_url = goods_url;
+    }
+
+
+
+    public String getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
+    }
+
+    public int getGoods_num() {
+        return goods_num;
+    }
+
+    public void setGoods_num(int goods_num) {
+        this.goods_num = goods_num;
+    }
+
+    public int getGoods_classify() {
+        return goods_classify;
+    }
+
+    public void setGoods_classify(int goods_classify) {
+        this.goods_classify = goods_classify;
     }
 }
